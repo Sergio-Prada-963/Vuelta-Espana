@@ -7,11 +7,6 @@
     <link rel="stylesheet" type="text/css" href="./plugins/templete.min.css">
     <link class="skin" rel="stylesheet" type="text/css" href="./plugins/skin-1.css"> 
     <link rel="stylesheet" type="text/css" href="./plugins/style.min.css">
-	<link rel="stylesheet" type="text/css" href="./plugins/responsive.min.css">
-	<link rel="stylesheet" type="text/css" href="./plugins/animate.min.css">
- <link rel="stylesheet" type="text/css" href="./plugins/owl.carousel.min.css">
-
-
 </head>
 <body>
 	
@@ -71,7 +66,7 @@
 							<path d="M16.5 7.5l0 .01"></path>
 						 </svg></a></li>
 					</ul>
-					<p class="copyright-head">© 2022 Industry </p>
+					<p class="copyright-head">© 2023 Sergio Prada and Edwing Mejia ©</p>
 				</div>
 			</div>
 			<div class="menu-close">
@@ -134,40 +129,66 @@
 			</div>
 		</div>
 	    <!-- Our Services END-->
-	
-		 
-		<!-- modal -->
-		<div id="modal" class="modal">
-			<div class="modal-content">
-				<span class="close-btn" id="closeModalBtn">&times;</span>
-				<h2>Registrar ciclistas</h2>
-				<div class="form-container">
-					<form id="newCiclista" class="form-container" action="" method="POST">
-						<div class="input-container">
-						  <input type="number" name="numero" id="numero" placeholder="#ciclista" required>
-						  <input type="text" name="nombre" id="nombre" placeholder="Introduce el nombre" required>
-						  <input type="text" name="equipo" id="equipo" placeholder="Introduce el equipo" required>
-						  <input type="text" name="nacionalidad" id="nacionalidad" placeholder="Introduce la nacionalidad" required>
-						  <input type="number" name="edad" id="edad" placeholder="edad" required>
-						  <input type="number" min="999" max="3150" name="recorrido" id="recorrido" placeholder="Recorrido" required>
-						  <input type="number" min="999" max="3150" name="puntos" id="puntos" placeholder="Puntos" required>
-						  <input type="number" min="999" max="3150" name="lider" id="lider" placeholder="Tiempo Lider" required>
-						  <input type="number" min="999" max="3150" name="rendimiento" id="rendimiento" placeholder="Rendimiento" required>
-						  <input type="url" name="img" id="img" placeholder="Introduce el url imagen" required>
-						</div>
-						<div class="button-container">
-						  <button type="submit" id="nuevoo" href="./">Enviar</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>		
+	</div>
 
-		<script src="./plugins/script.js"></script>
-    <script src="plugins/jquery.min.js"></script><!-- JQUERY.MIN JS -->
-    <script src="plugins/wow.js"></script><!-- WOW JS -->
-    <script src="plugins/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP.MIN JS -->
-    <script src="plugins/custom.min.js"></script>
+	<!-- modal -->
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<span class="close-btn" id="closeModalBtn">&times;</span>
+			<h2>Registrar ciclistas</h2>
+			<div class="form-container">
+				<form id="newCiclista" class="form-container" action="" method="POST">
+					<div class="input-container">
+					  <input type="number" name="numero" id="numero" placeholder="#ciclista" required>
+					  <input type="text" name="nombre" id="nombre" placeholder="Introduce el nombre" required>
+					  <input type="text" name="equipo" id="equipo" placeholder="Introduce el equipo" required>
+					  <input type="text" name="nacionalidad" id="nacionalidad" placeholder="Introduce la nacionalidad" required>
+					  <input type="number" name="edad" id="edad" placeholder="edad" required>
+					  <input type="number" min="999" max="3150" name="recorrido" id="recorrido" placeholder="Recorrido" required>
+					  <input type="number" min="999" max="3150" name="puntos" id="puntos" placeholder="Puntos" required>
+					  <input type="number" min="999" max="3150" name="lider" id="lider" placeholder="Tiempo Lider" required>
+					  <input type="number" min="999" max="3150" name="rendimiento" id="rendimiento" placeholder="Rendimiento" required>
+					  <input type="url" name="img" id="img" placeholder="Introduce el url imagen" required>
+					</div>
+					<div class="button-container">
+					  <button type="submit" id="nuevoo" href="./">Enviar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+	<!-- modal Update  -->
+	<div id="modalUpdate" class="modal">
+		<div class="modal-content">
+			<span class="close-btn" id="closeUpdate">&times;</span>
+			<h2>Editar ciclista</h2>
+			<div class="form-container">
+				<form id="updateCiclista" class="form-container" action="" method="POST">
+					<div class="input-container">
+					  <input type="number" name="numero" id="numeroU" required>
+					  <input type="text" name="nombre" id="nombreU" required>
+					  <input type="text" name="equipo" id="equipoU" required>
+					  <input type="text" name="nacionalidad" id="nacionalidadU" required>
+					  <input type="number" name="edad" id="edadU" required>
+					  <input type="number" min="999" max="3150" name="recorrido" id="recorridoU"required>
+					  <input type="number" min="999" max="3150" name="puntos" id="puntosU" required>
+					  <input type="number" min="999" max="3150" name="lider" id="liderU" required>
+					  <input type="number" min="999" max="3150" name="rendimiento" id="rendimientoU" required>
+					  <input type="url" name="img" id="imgU" required>
+					</div>
+					<div class="button-container">
+					  <a  id="nuevooU" href="./">Enviar</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="./plugins/script.js"></script>
+    <script src="./plugins/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+    <script src="./plugins/wow.js"></script><!-- WOW JS -->
+    <script src="./plugins/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+    <script src="./plugins/custom.min.js"></script>
 	<script src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
 	<script src="./pages/ciclistas/index.js"></script>
 	<script src="./pages/ciclistas/ciclistas.js" type="module"></script>

@@ -12,14 +12,14 @@ async function cargaCiclistas(){
         <div class="col-md-3 col-lg-2 col-sm-2 m-b2 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.4s; animation-name: fadeInUp;">
 			<div class="service-box3">
 				<div class="dlab-media"> <a ><img src="${img}" alt="imagen"></a> </div>
-				<div class="dlab-info" recorrido="${recorrido}" puntos="${puntos}" lider="${lider}" rendimiento="${rendimiento}">
+				<div class="dlab-info" numeroCiclista="${numeroCiclista}" nombreCiclista ="${nombreCiclista}" equipo="${equipo}" nacionalidad="${nacionalidad}" edad="${edad}" recorrido="${recorrido}" puntos="${puntos}" lider="${lider}" rendimiento="${rendimiento}" img="${img}">
 					<h2 class="dlab-title m-t0"><a>${nombreCiclista}</a></h2>
 					<div class="dlab-separator bg-primary"></div>
 					<h3>${equipo}, #${numeroCiclista}</h3>
 					<p>${nacionalidad}, Edad: ${edad}, Recorrido: ${recorrido}</p>
 					<a href="#estadisticass" class="site-button estadisticass" id="${_id}">ESTADISTICAS</a>
 					<a class="site-button delete" id="${_id}">ELIMINAR</a>
-					<a class="site-button" id="${_id}">EDITAR</a>
+					<a class="site-button update" id="${_id}">EDITAR</a>
 				</div>
 			</div>
 		</div>`;
@@ -46,8 +46,8 @@ function registroNew(e){
 	nuevoCiclistas(datos)
 }
 
-const btnDelete = document.querySelector('.datoss');;
-btnDelete.addEventListener('click', borrar)
+const btnOption = document.querySelector('.datoss');
+btnOption.addEventListener('click', borrar)
 function borrar(e){
 	if(e.target.classList.contains('delete')){
 		const borrarr = e.target.getAttribute('id')
@@ -58,6 +58,40 @@ function borrar(e){
         }
 	}
 }
+//values al actualizar
+btnOption.addEventListener('click', update)
+function update(e){
+	if(e.target .classList.contains('update')){
+		const ciclista = e.target.parentElement;
+		document.getElementById('numeroU').value = ciclista.getAttribute('numeroCiclista')
+		document.getElementById('nombreU').value = ciclista.getAttribute('nombreCiclista')
+		document.getElementById('equipoU').value = ciclista.getAttribute('equipo')
+		document.getElementById('nacionalidadU').value = ciclista.getAttribute('nacionalidad')
+		document.getElementById('edadU').value = ciclista.getAttribute('edad')
+		document.getElementById('recorridoU').value = ciclista.getAttribute('recorrido')
+		document.getElementById('puntosU').value = ciclista.getAttribute('puntos')
+		document.getElementById('liderU').value = ciclista.getAttribute('lider')
+		document.getElementById('rendimientoU').value = ciclista.getAttribute('rendimiento')
+		document.getElementById('imgU').value = ciclista.getAttribute('img')
+	}
+}
 
-/* const boton = document.querySelector('#nuevoo')
-boton.addEventListener('click',(e)=>{e.preventDefault();}) */
+const updateCiclista = document.getElementById('nuevooU');
+updateCiclista.addEventListener('click',actualizar);
+function actualizar(e){
+	e.preventDefault();
+	const datos = {
+		numeroU: document.getElementById('numeroU').value,
+		nombreU: document.getElementById('nombreU').value,
+		equipoU: document.getElementById('equipoU').value,
+		nacionalidadU: document.getElementById('nacionalidadU').value,
+		edadU: document.getElementById('edadU').value,
+		recorridoU: document.getElementById('recorridoU').value,
+		puntosU: document.getElementById('puntosU').value, 
+		liderU: document.getElementById('liderU').value,
+		rendimientoU: document.getElementById('rendimientoU').value,
+		imgU: document.getElementById('imgU').value,
+	}
+	console.log(datos);
+	updateCiclistas(datos);
+}

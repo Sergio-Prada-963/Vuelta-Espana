@@ -1,3 +1,4 @@
+// modal agregar
 const openModalBtn = document.getElementById("openModalBtn");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const modal = document.getElementById("modal");
@@ -15,6 +16,22 @@ window.addEventListener("click", (event) => {
     modal.style.display = "none";
   }
 });
+
+//moda actualizar
+const ciclistas = document.querySelector('.datoss');
+const closeUpdate = document.querySelector('#closeUpdate');
+const modalUpdate = document.getElementById('modalUpdate');
+ciclistas.addEventListener('click',(e)=>{
+  if(e.target.classList.contains('update'))
+    modalUpdate.style.display = "block"
+})
+closeUpdate.addEventListener('click',()=>{
+  modalUpdate.style.display = "none"
+})
+window.addEventListener('click',(e)=>{
+  if(e.target === modalUpdate)
+    modalUpdate.style.display = "none";
+})
 
 //Ciclistas
 
