@@ -82,13 +82,13 @@ var myChart = echarts.init(chartDom);
 var option;
 
 let base = 0;
-let oneDay = 170000000;
-let valueBase = 80;
-let valueBase2 = 0;
+let km = 170;
+let alt = 10;
 let data = [];
-for (var i = 1; i < 25; i++) {
-  data.push([170000000 * i, 10 * i]);
+for (var i = 1; i < 6; i++) {
+  data.push([km * i, alt * i]);
 }
+data.push([1000,20])
 option = {
   title: {
     left: 'center',
@@ -128,9 +128,7 @@ option = {
       },
       label: {
         show: true,
-        formatter: function (params) {
-          return echarts.format.formatTime('yyyy-MM', params.value);
-        },
+      
         //datos fecha arriba del circulito
         backgroundColor: 'red'
       },
@@ -175,7 +173,7 @@ option = {
   //datos
   series: [
     {
-      name: 'Fake Data',
+      name: 'Altura: ',
       type: 'line',
       smooth: true,
       symbol: 'circle',
