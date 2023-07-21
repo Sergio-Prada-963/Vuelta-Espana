@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const equiposSchema = mongoose.Schema({
 numeroEquipo: {
-        type: String,
+        type: Number,
         required: true,
         trim: true,
     },

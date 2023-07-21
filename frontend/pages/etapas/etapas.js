@@ -73,3 +73,133 @@ function borrar(e){
         }
     }
 }
+
+//grafica 
+import * as echarts from 'echarts';
+
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+var option;
+
+let base = 0;
+let oneDay = 170000000;
+let valueBase = 80;
+let valueBase2 = 0;
+let data = [];
+for (var i = 1; i < 25; i++) {
+  data.push([170000000 * i, 10 * i]);
+}
+option = {
+  title: {
+    left: 'center',
+    text: 'Tootip and dataZoom on Mobile Device'
+  },
+  legend: {
+    top: 'bottom',
+    data: ['Intention']
+  },
+  tooltip: {
+    triggerOn: 'none',
+    position: function (pt) {
+      return [pt[0], 130];
+    }
+  },
+  //iconos feos de arriba
+  toolbox: {
+    left: 'center',
+    itemSize: 25,
+    top: 55,
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {}
+    }
+  },
+  xAxis: {
+    type: '',
+    axisPointer: {
+      value: '1',
+      snap: true,
+      //linea ------------
+      lineStyle: {
+        color: 'blue',
+        width: 2
+      },
+      label: {
+        show: true,
+        formatter: function (params) {
+          return echarts.format.formatTime('yyyy-MM', params.value);
+        },
+        //datos fecha arriba del circulito
+        backgroundColor: 'red'
+      },
+      //circulito
+      handle: {
+        show: true,
+        color: '#7581BD'
+      }
+    },
+    splitLine: {
+      show: false
+    }
+  },
+  yAxis: {
+    type: 'value',
+    axisTick: {
+      inside: true
+    },
+    splitLine: {
+      show: false
+    },
+    axisLabel: {
+      inside: true,
+      formatter: '{value}\n'
+    },
+    z: 10
+  },
+  // tamaños
+  grid: {
+    top: 110,
+    left: 15,
+    right: 15,
+    height: 160
+  },
+  //zooom
+  dataZoom: [
+    {
+      type: 'inside',
+      throttle: 50
+    }
+  ],
+  //datos
+  series: [
+    {
+      name: 'Fake Data',
+      type: 'line',
+      smooth: true,
+      symbol: 'circle',
+      symbolSize: 5,
+      sampling: 'average',
+      itemStyle: {
+        color: '#0770FF'
+      },
+      stack: 'a',
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgba(58,77,233,0.8)'
+          },
+          {
+            offset: 1,
+            color: 'rgba(58,77,233,0.3)'
+          }
+        ])
+      },
+      data: data
+    }
+  ]
+};
+
+option && myChart.setOption(option);

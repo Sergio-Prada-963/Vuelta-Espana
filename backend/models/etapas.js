@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const etapasSchema = mongoose.Schema({
     numeroEtapa: {
-        type: String,
+        type: Number,
         required: true,
         trim: true,
     },

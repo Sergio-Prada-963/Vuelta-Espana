@@ -47,14 +47,26 @@ const borrarCiclistas = async (req, res) => {
 
 const actualizarCiclistas = async (req, res) => {
     try {
+        const {nombreCiclista, numeroCiclista, img} = req.body
+        const nameCiclista = await Ciclistas.findOne({nombreCiclista});
+        const numCiclista = await Ciclistas.findOne({numeroCiclista});
+        const imgCiclista = await Ciclistas.findOne({img});
+        if(nameCiclista)
+            if((nameCiclista._id).toString() != req.params.id)
+            return res.status(400).json({message:"EL nombre ya se encuentra registrado"});
+        if(numCiclista)
+            if((numCiclista._id).toString() != req.params.id)
+            return res.status(400).json({message:"El numero ya se encuentra registrado"});
+        if(imgCiclista)
+            if((imgCiclista._id).toString() != req.params.id)
+            return res.status(400).json({message:"La imagen ya esta en uso"})
         const ciclista = await Ciclistas.findOneAndUpdate({_id: req.params.id},req.body,{new:true});
         res.json(ciclista)
-        /* await ciclistas.save()
-        res.send(ciclistas) */
     } catch (error) {
         res.status(404)
         res.send({error: "No existe"})
-    }
+        console.log(error);
+    } 
 }
 
 

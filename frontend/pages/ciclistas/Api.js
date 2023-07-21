@@ -43,15 +43,15 @@ export const getOneID = async ()=>{
     }
 }
 
-export const updateCiclistas = async (datos) => {
+export const updateCiclistas = async (datosA) => {
     try {
-        await fetch(`${urlCiclistas}/${datos.idciclistas}`, {
+        await fetch(`${urlCiclistas}/${datosA._id}`, {
             method: "PATCH",
             headers:{'Content-Type':'application/json'},
-            body:JSON.stringify(datos)
+            body:JSON.stringify(datosA)
         }).then(response => response.json()).then(updatedDatos => {
             console.log('Datos actualizados:', updatedDatos);
-        });
+        });window.location.reload()
     } catch (error) {
       console.error('Error al actualizar los datos:', error);
     }

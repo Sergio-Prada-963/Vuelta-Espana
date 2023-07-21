@@ -73,6 +73,7 @@ function update(e){
 		document.getElementById('liderU').value = ciclista.getAttribute('lider')
 		document.getElementById('rendimientoU').value = ciclista.getAttribute('rendimiento')
 		document.getElementById('imgU').value = ciclista.getAttribute('img')
+		document.getElementById('nuevooU').classList.add(e.target.getAttribute('id'))
 	}
 }
 
@@ -80,18 +81,19 @@ const updateCiclista = document.getElementById('nuevooU');
 updateCiclista.addEventListener('click',actualizar);
 function actualizar(e){
 	e.preventDefault();
-	const datos = {
-		numeroU: document.getElementById('numeroU').value,
-		nombreU: document.getElementById('nombreU').value,
-		equipoU: document.getElementById('equipoU').value,
-		nacionalidadU: document.getElementById('nacionalidadU').value,
-		edadU: document.getElementById('edadU').value,
-		recorridoU: document.getElementById('recorridoU').value,
-		puntosU: document.getElementById('puntosU').value, 
-		liderU: document.getElementById('liderU').value,
-		rendimientoU: document.getElementById('rendimientoU').value,
-		imgU: document.getElementById('imgU').value,
+	const datosA = {
+		numeroCiclista: document.getElementById('numeroU').value,
+		nombreCiclista: document.getElementById('nombreU').value,
+		equipo: document.getElementById('equipoU').value,
+		nacionalidad: document.getElementById('nacionalidadU').value,
+		edad: document.getElementById('edadU').value,
+		recorrido: document.getElementById('recorridoU').value,
+		puntos: document.getElementById('puntosU').value, 
+		lider: document.getElementById('liderU').value,
+		rendimiento: document.getElementById('rendimientoU').value,
+		img: document.getElementById('imgU').value,
+		_id: updateCiclista.getAttribute('class')
 	}
-	console.log(datos);
-	updateCiclistas(datos);
+	console.log(datosA);
+	updateCiclistas(datosA);
 }
