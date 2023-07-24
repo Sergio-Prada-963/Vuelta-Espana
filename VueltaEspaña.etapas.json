@@ -1,0 +1,155 @@
+[{
+  "_id": {
+    "$oid": "64aed89ea534dc7d1f1e195c"
+  },
+  "numeroEtapa": 1,
+  "fecha": {
+    "$date": "2023-07-02T00:00:00.000Z"
+  },
+  "salida": "Sevilla",
+  "llegada": "Granada",
+  "distancia": "180 kilómetros",
+  "ganador": "Nairo",
+  "descripcion": "Etapa de montaña con final en alto",
+  "premioMontana": "Medalla primera etapa",
+  "grafica": [
+    {"montana": 180},
+    {"montana": 280},
+    {"montana": 200},
+    {"montana": 500},
+    {"montana": 600}
+  ]
+},
+{
+  "_id": {
+    "$oid": "64aed89ea534dc7d1f1e195d"
+  },
+  "numeroEtapa": 2,
+  "fecha": {
+    "$date": "2023-07-03T00:00:00.000Z"
+  },
+  "salida": "Granada",
+  "llegada": "Málaga",
+  "distancia": "150 kilómetros",
+  "ganador": "Sergio",
+  "descripcion": "Etapa mixta con tramos de montaña y llanos",
+  "premioMontana": "Flores",
+  "grafica": [
+    {"montana": 500},
+    {"montana": 450},
+    {"montana": 320},
+    {"montana": 280},
+    {"montana": 100}
+  ]
+},
+{
+  "_id": {
+    "$oid": "64aed89ea534dc7d1f1e195f"
+  },
+  "numeroEtapa": 3,
+  "fecha": {
+    "$date": "2023-07-05T00:00:00.000Z"
+  },
+  "salida": "Córdoba",
+  "llegada": "Sevilla",
+  "distancia": "120 kilómetros",
+  "ganador": "Camilo",
+  "descripcion": "Etapa llana y rápida para los sprinters",
+  "premioMontana": "No hay premios de montaña en esta etapa",
+  "grafica": [
+    {"montana": 60},
+    {"montana": 150},
+    {"montana": 250},
+    {"montana": 420},
+    {"montana": 490}
+  ]
+},
+{
+  "_id": {
+    "$oid": "64aed89ea534dc7d1f1e195b"
+  },
+  "numeroEtapa": 4,
+  "fecha": {
+    "$date": "2023-07-01T00:00:00.000Z"
+  },
+  "salida": "Madrid",
+  "llegada": "Sevilla",
+  "distancia": "100 kilómetros",
+  "ganador": "Juan",
+  "descripcion": "Etapa llana con algunos repechos",
+  "premioMontana": "Equipo de ciclismo",
+  "grafica": [
+    {"montana": 180},
+    {"montana": 350},
+    {"montana": 480},
+    {"montana": 600},
+    {"montana": 800}
+  ]
+},
+{
+  "_id": {
+    "$oid": "64aed89ea534dc7d1f1e195e"
+  },
+  "numeroEtapa": 5,
+  "fecha": {
+    "$date": "2023-07-04T00:00:00.000Z"
+  },
+  "salida": "Málaga",
+  "llegada": "Córdoba",
+  "distancia": "200 kilómetros",
+  "ganador": "Isaias",
+  "descripcion": "Etapa de montaña con final en ascenso exigente",
+  "premioMontana": "Casa nueva",
+  "grafica": [
+    {"montana": 400},
+    {"montana": 550},
+    {"montana": 680},
+    {"montana": 400},
+    {"montana": 550}
+  ]
+},
+{
+  "_id": {
+    "$oid": "64aeeed67a0fcdad502a17ed"
+  },
+  "numeroEtapa": 50,
+  "salida": "pruevaaaaaa",
+  "llegada": "Sevilla",
+  "distancia": "100 kilómetros",
+  "ganador": "Chris Froome",
+  "descripcion": "Etapa llana con algunos repechos",
+  "premioMontana": "Monte Abantos",
+  "grafica": [
+    {"montana": 180},
+    {"montana": 300},
+    {"montana": 200},
+    {"montana": 400},
+    {"montana": 650}
+  ]
+},
+{
+  "_id": {
+    "$oid": "64af5437e9e566f108080dcc"
+  },
+  "numeroEtapa": 6,
+  "salida": "Sevilla",
+  "llegada": "Granada",
+  "distancia": "180 kilómetros",
+  "ganador": "Edwing",
+  "descripcion": "Etapa de montaña con final en alto",
+  "premioMontana": "Carro 0Km",
+  "grafica": [
+    {"montana": 600},
+    {"montana": 400},
+    {"montana": 550},
+    {"montana": 330},
+    {"montana": 150}
+  ],
+  "createdAt": {
+    "$date": "2023-07-13T01:32:39.009Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-13T01:32:39.009Z"
+  },
+  "__v": 0
+}]

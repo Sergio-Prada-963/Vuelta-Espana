@@ -36,9 +36,6 @@ const actualizarEtapas = async (req, res) => {
         if (req.body.numeroEtapa) {
             etapa.numeroEtapa = req.body.numeroEtapa;
         }
-        if (req.body.fecha) {
-            etapa.fecha = req.body.fecha;
-        }
         if (req.body.salida) {
             etapa.salida = req.body.salida;
         }

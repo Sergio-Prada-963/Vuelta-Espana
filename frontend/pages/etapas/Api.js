@@ -1,10 +1,6 @@
-const urlEtapas = "http://localhost:3309/etapas/all"
-const urlNew =  "http://localhost:3309/etapas/add"
-const urlDelete = "http://localhost:3309/etapas/delete"
-const urlEtapasID =  "http://localhost:3309/etapas/get"
-const urlActualizar = "http://localhost:3309/etapas/update"
+const urlEtapas = "http://localhost:3309/api/etapas"
 
-export const getEquipos = async ()=>{
+export const getEtapas = async ()=>{
     try {  
         const etapas = await fetch(urlEtapas);
         const datoEtapas = await etapas.json();
@@ -16,7 +12,7 @@ export const getEquipos = async ()=>{
 
 export const nuevoEtapas = async(registro)=>{
     try {
-        await fetch(urlNew,{
+        await fetch(urlEtapas,{
             method: "POST",
             body:JSON.stringify(registro),
             headers:{'Content-Type':'application/json'}
@@ -29,7 +25,7 @@ export const nuevoEtapas = async(registro)=>{
 
 export const deleteEtapas = async idetapas =>{
     try {
-        await fetch(`${urlDelete}&id=${idetapas}`,{
+        await fetch(`${urlEtapas}&id=${idetapas}`,{
             method:'DELETE'
         })
     } catch (error) {
@@ -39,7 +35,7 @@ export const deleteEtapas = async idetapas =>{
 
 export const getOneID = async ()=>{
     try {
-        const algo = await fetch(`${urlEtapasID}/${id}`);
+        const algo = await fetch(`${urlEtapas}/${id}`);
         const dato = await algo.json();
         return dato;
     } catch (error) {
@@ -49,7 +45,7 @@ export const getOneID = async ()=>{
 
 export const updateEtapas = async (datos) => {
     try {
-        await fetch(`${urlActualizar}/${datos.idetapas}`, {
+        await fetch(`${urlEtapas}/${datos.idetapas}`, {
             method: "PATCH",
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify(datos)

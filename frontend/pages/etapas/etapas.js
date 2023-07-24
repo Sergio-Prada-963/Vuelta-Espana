@@ -7,197 +7,74 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 async function cargaEtapas(){
     const etapas = await getEtapas();
-    const tablaEtapas= document.querySelector('#datosEtapas');
+    const tablaEtapas= document.querySelector('.datoss');
     etapas.forEach(element => {
-        const {numeroEtapa, fecha,salida, llegada,distancia,ganador,descripcion,premioMontana} = element
+        const {_id, numeroEtapa, salida, llegada, distancia, ganador, descripcion, premioMontana, grafica} = element
         tablaEtapas.innerHTML += `
-        <tr>
-            <td>${numeroEtapa}</td>
-            <td>${fecha}</td>
-            <td>${salida}</td>
-            <td>${llegada}</td
-            <td>${distancia}</td
-            <td>${ganador}</td>
-            <td>${descripcion}</td>
-            <td>${premioMontana}</td>
-           
-        
-            <td><button type="button" class="btn btn-danger delete" id="">Delete</button></td>
-        </tr>
-        `
+        <div class="col-md-3 col-lg-2 col-sm-2 m-b2 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.4s; animation-name: fadeInUp;">
+        <div class="service-box3 etapass">
+          <div class="dlab-media text-center"><h1 class="dlab-title m-t0">Etapa : ${numeroEtapa}</h1></div>
+          <div class="dlab-info" _id="${_id}" numeroEtapa="${numeroEtapa}" salida="${salida}" llegada="${llegada}" distancia="${distancia}" ganador="${ganador}" descripcion="${descripcion}" premioMontana="${premioMontana}" grafica="${grafica}">
+            <div class="dlab-separator bg-primary"></div>
+            <h2>Salida: ${salida}, &nbsp &nbsp &nbsp Llegada: ${llegada}</h2>
+            <h3>Distancia: ${distancia}</h3>
+            <h3>Ganador: ${ganador}</h3>
+            <h4>Premio: ${premioMontana}</h4>
+            <h4><strong>Descripcion:</strong> ${descripcion}</h4>
+            <a class="site-button grafica" id="${_id}" href="#graficas" >RUTA</a>
+            <a class="site-button delete" id="${_id}">ELIMINAR</a>
+            <a class="site-button update" id="${_id}">EDITAR</a>
+          </div>
+        </div>
+      </div>`;
     });
 }
-const formulario = document.getElementById('registrar');
-formulario.addEventListener('submit',newEtapas)
-function newEtapas(e){
-    e.preventDefault();
-    const numeroEtapa = document.getElementById('numeroEtapa').value;
-    const fecha = document.getElementById('fecha').value;
-    const salida = document.getElementById('salida').value;
-    const llegada= document.getElementById('llegada').value;
-    const distancia = document.getElementById('distancia').value;
-    const ganador = document.getElementById('ganador').value;
-    const descripcion = document.getElementById('descripcion').value;
-    const  premioMontana = document.getElementById('premioMontana').value;
+// const formulario = document.getElementById('registrar');
+// formulario.addEventListener('submit',newEtapas)
+// function newEtapas(e){
+//     e.preventDefault();
+//     const numeroEtapa = document.getElementById('numeroEtapa').value;
+//     const fecha = document.getElementById('fecha').value;
+//     const salida = document.getElementById('salida').value;
+//     const llegada= document.getElementById('llegada').value;
+//     const distancia = document.getElementById('distancia').value;
+//     const ganador = document.getElementById('ganador').value;
+//     const descripcion = document.getElementById('descripcion').value;
+//     const  premioMontana = document.getElementById('premioMontana').value;
 
-    const registro = {
-        numeroEtapa,
-        fecha,
-        salida,
-        llegada,
-        distancia,
-        ganador,
-        patrocinador,
-        descripcion,
-        premioMontana
-    }
-    console.log(registro);
-    nuevoEtapas(registro)
-    if(validation(registro)){
-         alert("todos los datos son obligatorios")
-     }return nuevoCiclistas(registro)
-}
-// function validation(Objecto){
-//     return !Object.values(Objecto).every(element=>element == '')
+//     const registro = {
+//         numeroEtapa,
+//         fecha,
+//         salida,
+//         llegada,
+//         distancia,
+//         ganador,
+//         patrocinador,
+//         descripcion,
+//         premioMontana
+//     }
+//     console.log(registro);
+//     nuevoEtapas(registro)
+//     if(validation(registro)){
+//          alert("todos los datos son obligatorios")
+//      }return nuevoCiclistas(registro)
+// }
+// // function validation(Objecto){
+// //     return !Object.values(Objecto).every(element=>element == '')
+// // }
+
+// const eliminar = document.querySelector('#datosEtapas')
+// eliminar.addEventListener('click',borrar)
+
+// function borrar(e){
+//     if(e.target.classList.contains('delete')){
+//         const idequipos = e.target.getAttribute('id');
+//         const confir = confirm("desea Eliminarlo?");
+//         if(confir){
+//             deleteEquipos(idequipos)
+//         }
+//     }
 // }
 
-const eliminar = document.querySelector('#datosEtapas')
-eliminar.addEventListener('click',borrar)
-
-function borrar(e){
-    if(e.target.classList.contains('delete')){
-        const idequipos = e.target.getAttribute('id');
-        const confir = confirm("desea Eliminarlo?");
-        if(confir){
-            deleteEquipos(idequipos)
-        }
-    }
-}
-
 //grafica 
-import * as echarts from 'echarts';
 
-var chartDom = document.getElementById('main');
-var myChart = echarts.init(chartDom);
-var option;
-
-let base = 0;
-let km = 170;
-let alt = 10;
-let data = [];
-for (var i = 1; i < 6; i++) {
-  data.push([km * i, alt * i]);
-}
-data.push([1000,20])
-option = {
-  title: {
-    left: 'center',
-    text: 'Tootip and dataZoom on Mobile Device'
-  },
-  legend: {
-    top: 'bottom',
-    data: ['Intention']
-  },
-  tooltip: {
-    triggerOn: 'none',
-    position: function (pt) {
-      return [pt[0], 130];
-    }
-  },
-  //iconos feos de arriba
-  toolbox: {
-    left: 'center',
-    itemSize: 25,
-    top: 55,
-    feature: {
-      dataZoom: {
-        yAxisIndex: 'none'
-      },
-      restore: {}
-    }
-  },
-  xAxis: {
-    type: '',
-    axisPointer: {
-      value: '1',
-      snap: true,
-      //linea ------------
-      lineStyle: {
-        color: 'blue',
-        width: 2
-      },
-      label: {
-        show: true,
-      
-        //datos fecha arriba del circulito
-        backgroundColor: 'red'
-      },
-      //circulito
-      handle: {
-        show: true,
-        color: '#7581BD'
-      }
-    },
-    splitLine: {
-      show: false
-    }
-  },
-  yAxis: {
-    type: 'value',
-    axisTick: {
-      inside: true
-    },
-    splitLine: {
-      show: false
-    },
-    axisLabel: {
-      inside: true,
-      formatter: '{value}\n'
-    },
-    z: 10
-  },
-  // tamaños
-  grid: {
-    top: 110,
-    left: 15,
-    right: 15,
-    height: 160
-  },
-  //zooom
-  dataZoom: [
-    {
-      type: 'inside',
-      throttle: 50
-    }
-  ],
-  //datos
-  series: [
-    {
-      name: 'Altura: ',
-      type: 'line',
-      smooth: true,
-      symbol: 'circle',
-      symbolSize: 5,
-      sampling: 'average',
-      itemStyle: {
-        color: '#0770FF'
-      },
-      stack: 'a',
-      areaStyle: {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 0,
-            color: 'rgba(58,77,233,0.8)'
-          },
-          {
-            offset: 1,
-            color: 'rgba(58,77,233,0.3)'
-          }
-        ])
-      },
-      data: data
-    }
-  ]
-};
-
-option && myChart.setOption(option);
